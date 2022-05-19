@@ -26,7 +26,7 @@ body {
 .content {
     display: flex;
 
-    flex: 10 1 auto;
+    flex: 1 1 auto;
 
     border: solid yellow;
 }
@@ -36,6 +36,8 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 32px;
+
+    padding: 16px 32px;
 
     flex: 1 1 auto;
 
@@ -51,9 +53,31 @@ body {
 
 
 .grid {
-    flex: 10 1 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex: 3 1 auto;
 
     border: solid violet;
+}
+.container {
+    width: 500px;
+    height: 500px;
+    margin: 0px 64px;
+
+
+    display: grid;
+    grid-gap: 0px;
+    grid-template-columns: repeat(4, 25%);
+    grid-template-rows: repeat(4, 25%);
+    grid-auto-flow: column;
+
+    border: solid red;
+}
+.box {
+    background-color: orange;
+    border: solid 1px yellow;
 }
 
 
