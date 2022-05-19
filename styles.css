@@ -38,7 +38,7 @@ body {
 }
 
 .grid {
-    flex: 3 1 auto;
+    flex: 10 1 auto;
 
     border: solid violet;
 }
