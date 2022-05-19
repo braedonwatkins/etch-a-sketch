@@ -10,6 +10,8 @@ body {
     display: flex;
     flex-direction: column;
 
+    background-color: hsl(48, 33%, 93%);
+
     border: solid red;
 }
 
