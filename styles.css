@@ -41,9 +41,14 @@ body {
 
     border: solid blue;
 }
-.erase {
+.resize {
     margin-top: 64px;
 }
+.erase {
+ 
+}
+
+
 
 .grid {
     flex: 10 1 auto;
