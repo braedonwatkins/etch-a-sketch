@@ -56,18 +56,18 @@ button {
   
     font-size: 12px;
 }
-button:hover {
+.solid:hover {
     background: black; /* any way to do this relative to original ??? */ /* Transition into this */ 
 }
 .rainbow:hover { /* transition into this, then have background scroll or whatever */
-    background: linear-gradient(-66deg, cyan, yellow, magenta );
+    background: linear-gradient(-66deg, cyan, yellow, magenta);
     color: black;
 }
 .resize {
     margin-top: 64px;
 }
 .resize:hover { /* transition to ease in grow and ease out */
-
+    transform:scale(1.05);
 }
 .erase:hover {  /* transition into this */
     background: transparent;
