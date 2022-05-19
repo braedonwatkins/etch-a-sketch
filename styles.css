@@ -46,9 +46,28 @@ body {
 }
 
 .grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     flex: 10 1 auto;
 
     border: solid violet;
+}
+.container {
+    flex: 0 1 auto;
+
+    display: grid;
+    grid-gap: 16px;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: 100px 100px 100px 100px;
+    grid-auto-flow: column;
+
+    border: solid red;
+}
+.box {
+    background-color: orange;
+
 }
 
 
