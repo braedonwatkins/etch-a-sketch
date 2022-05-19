@@ -16,6 +16,30 @@ body {
     border: solid red;
 }
 
+button {
+    padding: 16px 64px;
+    margin: 0px 48px 0px 48px;
+    border-radius: 8px;
+
+    background: hsl(0, 0%, 20%);
+    color: white;
+    border: solid 1px hsl(0, 0%, 20%);
+  
+    font-size: 12px;
+}
+button:hover {
+    background: black; /* any way to do this relative to original ??? */ /* Transition into this */ 
+}
+.rainbow:hover { /* transition into this, then have background scroll or whatever */
+
+    background: linear-gradient(-66deg, cyan, yellow, magenta );
+}
+.erase:hover {  /* transition into this */
+    background: transparent;
+    color: black;
+}
+
+
 .header {
     
     flex: 1 1 auto;
