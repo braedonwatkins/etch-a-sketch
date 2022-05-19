@@ -1,0 +1,49 @@
+
+/* Why is it like this exactly, again? */
+body, html { 
+    height: 100vh;
+    margin:0;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+
+    border: solid red;
+}
+
+.header {
+    
+    flex: 1 1 auto;
+
+    border: solid orange;
+}
+
+.content {
+    display: flex;
+
+    flex: 10 1 auto;
+
+    border: solid yellow;
+}
+
+.options {
+    flex: 1 1 auto;
+
+    border: solid blue;
+}
+
+.grid {
+    flex: 3 1 auto;
+
+    border: solid violet;
+}
+
+
+.footer {
+
+    flex: 1 1 auto;
+
+    border: solid green;
+}
