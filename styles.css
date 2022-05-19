@@ -57,8 +57,14 @@ button {
   
     font-size: 12px;
 }
+button:hover {
+    cursor: pointer;
+}
 .solid:hover {
     background: black; /* any way to do this relative to original ??? */ /* Transition into this */ 
+}
+button:active {
+    transform:scale(0.9);
 }
 .rainbow:hover { /* transition into this, then have background scroll or whatever */
     background: linear-gradient(-66deg, cyan, yellow, magenta);
@@ -69,6 +75,9 @@ button {
 }
 .resize:hover { /* transition to ease in grow and ease out */
     transform:scale(1.1);
+}
+.resize:active { /* I understand this is redundant but it doesn't seem to work any other way */
+    transform:scale(1.0);
 }
 .erase:hover {  /* transition into this */ /* possibly do <shake> */
     background: transparent;
