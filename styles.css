@@ -32,6 +32,10 @@ body {
 }
 
 .options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     flex: 1 1 auto;
 
     border: solid blue;
