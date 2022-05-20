@@ -6,7 +6,6 @@
     2. Inactive (Active toggled off): Default
 */
 const mouse = document.createElement("div");
-// const cells = document.querySelectorAll(".cell");
 const grid = document.querySelector(".grid");
 
 const solidButton = document.querySelector(".solid");
@@ -83,7 +82,7 @@ function resizeGrid() {
     // 2. get children count
     // let len = cells.length; //unnecessary variable
     // let cellArray = Array.from(cells);
-    // // grid.clearChildren();
+    grid.innerHTML = "";
 
     // 3. add / remove children 
     if(gridSize > grid.childElementCount){
@@ -91,9 +90,6 @@ function resizeGrid() {
         {
             const newCell = document.createElement("div");
             newCell.className = "cell";
-
-            // newCell.addEventListener('mouseenter', colorCell);
-            // cellArray.push(newCell);
             
             grid.appendChild(newCell);
         }
