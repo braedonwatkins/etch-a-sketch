@@ -69,8 +69,9 @@ function toggleBrush(e) {
 function resizeGrid() { 
     // 1. get square dimensions of grid
     // using gridPrompt this way feels poorly written but idk how to make it better
-    let gridSize = gridPrompt();
-    if(isNaN(gridSize)) {alert("error in grid resize. please enter number <= 100."); return;}
+    let gridLen = gridPrompt();
+    let gridSize = gridLen ** 2;
+    if(isNaN(gridLen)) {alert("error in grid resize. please enter number <= 100."); return;}
 
     // 2. get children count
     // let len = cells.length; //unnecessary variable
@@ -81,11 +82,16 @@ function resizeGrid() {
         while(cellArray.length < gridSize)
         {
             const newCell = document.createElement("div");
-            newCell.classname = "cell";
+            newCell.className = "cell";
 
             cellArray.push(newCell);
             grid.appendChild(newCell);
         }
+
+        console.log(`DOM: ${cellArray.length} grid: ${grid.childElementCount}`);
+
+        grid.style.gridTemplateColumns = `repeat(${gridLen}, auto)`;
+        grid.style.gridTemplateRows = `repeat(${gridLen}, auto)`;
     }
 
 
