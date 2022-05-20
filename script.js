@@ -72,10 +72,22 @@ function resizeGrid() {
     let gridSize = gridPrompt();
     if(isNaN(gridSize)) {alert("error in grid resize. please enter number <= 100."); return;}
 
-
     // 2. get children count
+    // let len = cells.length; //unnecessary variable
+    let cellArray = Array.from(cells);
 
     // 3. add / remove children 
+    if(gridSize > cellArray.length){
+        while(cellArray.length < gridSize)
+        {
+            const newCell = document.createElement("div");
+            newCell.classname = "cell";
+
+            cellArray.push(newCell);
+            grid.appendChild(newCell);
+        }
+    }
+
 
     // 4. refactors grid properties to evenly space divs
 }
