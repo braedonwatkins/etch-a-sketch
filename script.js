@@ -151,7 +151,7 @@ function shakeGrid() {
 function lowerOpacity(cell) { // This feels like a very silly way to do this
     
     if(cell.style.opacity < 0.0) {cell.style.opacity = 0.0;} // Avoid overflow
-    else { cell.style.opacity -= (Math.random() * (0.4) + 0.2);} //Max of 0.5 and Min of 0.4 reduction to opacity
+    else { cell.style.opacity -= (Math.random() * (0.8) + 0.2);} //Max of 0.5 and Min of 0.4 reduction to opacity
 
     return cell.style.opacity;
 }
