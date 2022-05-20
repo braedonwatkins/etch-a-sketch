@@ -6,7 +6,7 @@
     2. Inactive (Active toggled off): Default
 */
 const mouse = document.createElement("div");
-const cells = document.querySelectorAll(".cell");
+// const cells = document.querySelectorAll(".cell");
 const grid = document.querySelector(".grid");
 
 const solidButton = document.querySelector(".solid");
@@ -17,22 +17,29 @@ const eraseButton = document.querySelector(".erase");
 mouse.classList.add("solid"); //default brush type
 
 
-cells.forEach((cell) => {
-    cell.addEventListener('mouseenter', colorCell);
-});
+// cells.forEach((cell) => {
+//     cell.addEventListener('mouseenter', colorCell);
+// });
 grid.addEventListener('click', toggleActive);
+grid.addEventListener('mouseenter', colorCell, {capture:true});
 solidButton.addEventListener('click', toggleBrush);
 rainbowButton.addEventListener('click', toggleBrush);
 resizeButton.addEventListener('click', resizeGrid)
 
 
 function colorCell(e) {
+    console.log(`${e.target.classList}`);
+
     if(mouse.classList.contains("active")) {
         if(mouse.classList.contains("solid")){
-            e.target.style.background = "black";
+            if(e.target.classList.contains("cell")){
+                e.target.style.background = "black";
+            }
         }
         else if(mouse.classList.contains("rainbow")) {
-            e.target.style.backgroundColor = randomColor();
+            if(e.target.classList.contains("cell")){
+                e.target.style.backgroundColor = randomColor();
+            }
         }
     }
 }
@@ -75,21 +82,23 @@ function resizeGrid() {
 
     // 2. get children count
     // let len = cells.length; //unnecessary variable
-    let cellArray = Array.from(cells);
+    // let cellArray = Array.from(cells);
+    // // grid.clearChildren();
 
     // 3. add / remove children 
-    if(gridSize > cellArray.length){
-        while(cellArray.length < gridSize)
+    if(gridSize > grid.childElementCount){
+        while(gridSize > grid.childElementCount)
         {
             const newCell = document.createElement("div");
             newCell.className = "cell";
-            newCell.addEventListener('mouseenter', colorCell);
 
-            cellArray.push(newCell);
+            // newCell.addEventListener('mouseenter', colorCell);
+            // cellArray.push(newCell);
+            
             grid.appendChild(newCell);
         }
 
-        console.log(`DOM: ${cellArray.length} grid: ${grid.childElementCount}`);
+        console.log(`grid: ${grid.childElementCount}`);
 
         grid.style.gridTemplateColumns = `repeat(${gridLen}, auto)`;
         grid.style.gridTemplateRows = `repeat(${gridLen}, auto)`;
