@@ -66,11 +66,18 @@ function toggleBrush(e) {
     }
 }
 
-function resizeGrid() { // using gridPrompt this way feels poorly written but idk how to make it better
+function resizeGrid() { 
+    // 1. get square dimensions of grid
+    // using gridPrompt this way feels poorly written but idk how to make it better
     let gridSize = gridPrompt();
-    if(isNaN(gridSize)) {alert("error in grid resize. please enter number <= 100.")}
+    if(isNaN(gridSize)) {alert("error in grid resize. please enter number <= 100."); return;}
 
 
+    // 2. get children count
+
+    // 3. add / remove children 
+
+    // 4. refactors grid properties to evenly space divs
 }
 
 function gridPrompt() {
