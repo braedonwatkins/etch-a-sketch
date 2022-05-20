@@ -5,10 +5,8 @@
         b. Rainbow: Paints random color over any grid cell that is hovered (mouseenter)
     2. Inactive (Active toggled off): Default
 */
-
-
-const cells = document.querySelectorAll(".cell");
 const mouse = document.createElement("div");
+const cells = document.querySelectorAll(".cell");
 const grid = document.querySelector(".grid");
 
 const solidButton = document.querySelector(".solid");
@@ -25,6 +23,7 @@ cells.forEach((cell) => {
 grid.addEventListener('click', toggleActive);
 solidButton.addEventListener('click', toggleBrush);
 rainbowButton.addEventListener('click', toggleBrush);
+resizeButton.addEventListener('click', resizeGrid)
 
 
 function colorCell(e) {
@@ -65,4 +64,15 @@ function toggleBrush(e) {
             mouse.classList.toggle("rainbow");
         }
     }
+}
+
+function resizeGrid() {
+    let test;
+    do{ 
+        test = prompt("fuck am i walkin ere?");
+        if(test === "" || test === null) {return null;}
+        else {test = parseInt(test);}
+
+        console.log(`${test} and ${typeof(test)}`);
+    }while(test > 100 || !Number.isInteger(test));
 }
