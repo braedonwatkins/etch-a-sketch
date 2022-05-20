@@ -109,7 +109,7 @@ button:active {
 
     border: solid red;
 }
-.box {
+.cell {
     background-color: hsl(0, 0%, 90%);
     border: solid 1px black;
 }
