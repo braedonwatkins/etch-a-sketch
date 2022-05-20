@@ -66,11 +66,11 @@ function toggleBrush(e) {
     }
 }
 
-function resizeGrid() { //This feels poorly written but idk how to make it better
+function resizeGrid() { // using gridPrompt this way feels poorly written but idk how to make it better
     let gridSize = gridPrompt();
     if(isNaN(gridSize)) {alert("error in grid resize. please enter number <= 100.")}
 
-    
+
 }
 
 function gridPrompt() {
