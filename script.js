@@ -4,8 +4,11 @@ console.log(`${cells}`);
 
 
 cells.forEach((cell) => {
-    cell.addEventListener('click', () => console.log('cell'));
+    cell.addEventListener('mouseenter', () => console.log('cell'));
 });
+
+grid.addEventListener('click', () => console.log('grid'));
+
 
 
 // NOTE: Mouse States
