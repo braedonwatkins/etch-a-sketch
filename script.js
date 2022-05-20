@@ -39,7 +39,7 @@ function colorCell(e) {
 
 function toggleActive(e) {
     mouse.classList.toggle("active");
-    // console.log(`${mouse.classList}`);
+    console.log(`${mouse.classList}`);
 }
 
 function randomColor() {
@@ -70,8 +70,8 @@ function resizeGrid() {
     // 1. get square dimensions of grid
     // using gridPrompt this way feels poorly written but idk how to make it better
     let gridLen = gridPrompt();
-    let gridSize = gridLen ** 2;
     if(isNaN(gridLen)) {alert("error in grid resize. please enter number <= 100."); return;}
+    let gridSize = gridLen ** 2;
 
     // 2. get children count
     // let len = cells.length; //unnecessary variable
@@ -83,6 +83,7 @@ function resizeGrid() {
         {
             const newCell = document.createElement("div");
             newCell.className = "cell";
+            newCell.addEventListener('mouseenter', colorCell);
 
             cellArray.push(newCell);
             grid.appendChild(newCell);
