@@ -86,7 +86,7 @@ button:active {
 
 
 
-.grid {
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -95,7 +95,7 @@ button:active {
 
     border: solid violet;
 }
-.container {
+.grid {
     width: 500px;
     height: 500px;
     margin: 0px 64px;
