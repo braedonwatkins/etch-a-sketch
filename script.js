@@ -2,14 +2,20 @@ const cells = document.querySelectorAll(".cell");
 const grid = document.querySelector(".grid");
 console.log(`${cells}`);
 
-
 cells.forEach((cell) => {
-    cell.addEventListener('mouseenter', () => console.log('cell'));
+    cell.addEventListener('mouseenter', colorCell);
 });
 
-grid.addEventListener('click', () => console.log('grid'));
+grid.addEventListener('click', toggleBrush);
 
 
+function colorCell(e) {
+    console.log('cell');
+}
+
+function toggleBrush(e) {
+    console.log('grid');
+}
 
 // NOTE: Mouse States
 /*
@@ -19,6 +25,6 @@ grid.addEventListener('click', () => console.log('grid'));
     2. Inactive (Active toggled off): Default
 */
 
-let active = true;
+let active = true; // should be false but for testing we will have this to true
 let brush = "solid";
 
