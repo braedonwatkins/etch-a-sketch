@@ -36,3 +36,13 @@ function toggleBrush(e) {
     mouse.classList.toggle("active");
     console.log(`${mouse.classList}`);
 }
+
+// Color Format: <color: rgba(50, 48, 56, 0.8);>
+function randomColor() {
+    let r = Math.floor(Math.random() * 255).toString();
+    let g = Math.floor(Math.random() * 255).toString();
+    let b = Math.floor(Math.random() * 255).toString();
+    // let a = Math.floor(Math.random()).toString();
+
+    return (`rgb(${r},${g},${b});`);
+}
