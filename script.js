@@ -67,12 +67,21 @@ function toggleBrush(e) {
 }
 
 function resizeGrid() { //This feels poorly written but idk how to make it better
-    let test;
-    do{ 
-        test = prompt("Please enter an integer <= 100");
-        if(test === "" || test === null) {return null;}
-        else {test = parseInt(test);}
+    let gridSize = gridPrompt();
+    if(isNaN(gridSize)) {alert("error in grid resize. please enter number <= 100.")}
 
-        // console.log(`${test} and ${typeof(test)}`);
-    }while(test > 100 || !Number.isInteger(test));
+    
+}
+
+function gridPrompt() {
+    let size;
+    do{ 
+        size = prompt("Please enter an integer <= 100");
+        if(size === "" || size === null) {return null;}
+        else {size = parseInt(size);}
+
+        // console.log(`${size} and ${typeof(size)}`);
+    }while(size > 100 || !Number.isInteger(size));
+
+    return size;
 }
