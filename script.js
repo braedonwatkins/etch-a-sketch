@@ -25,7 +25,8 @@ grid.addEventListener('click', toggleActive);
 grid.addEventListener('mouseenter', colorCell, {capture:true});
 solidButton.addEventListener('click', toggleBrush);
 rainbowButton.addEventListener('click', toggleBrush);
-resizeButton.addEventListener('click', resizeGrid)
+resizeButton.addEventListener('click', resizeGrid);
+eraseButton.addEventListener('click', shakeGrid);
 
 
 window.onload = function() {
@@ -51,12 +52,14 @@ function colorCell(e) {
     if(mouse.classList.contains("active")) {
         if(mouse.classList.contains("solid")){
             if(e.target.classList.contains("cell")){
-                e.target.style.background = "black";
+                e.target.style.backgroundColor = "rgb(0,0,0)";
+                e.target.style.opacity = 1.0;
             }
         }
         else if(mouse.classList.contains("rainbow")) {
             if(e.target.classList.contains("cell")){
                 e.target.style.backgroundColor = randomColor();
+                e.target.style.opacity = 1.0;
             }
         }
     }
@@ -71,9 +74,8 @@ function randomColor() {
     let r = Math.floor(Math.random() * 255).toString();
     let g = Math.floor(Math.random() * 255).toString();
     let b = Math.floor(Math.random() * 255).toString();
-    // let a = Math.floor(Math.random()).toString();
 
-    return (`rgb(${r},${g},${b})`);
+    return (`rgba(${r},${g},${b})`);
 }
 
 function toggleBrush(e) {
@@ -134,4 +136,17 @@ function gridPrompt() {
     }while(size > 100 || !Number.isInteger(size));
 
     return size;
+}
+
+function shakeGrid() {
+    // if(e.target.classList.contains("cell")) { e.target.style.backgroundColor = `rgb(255,255,255)`;} 
+    const cells = document.querySelectorAll(".cell");
+    cells.forEach((cell) => {cell.style.opacity = lowerOpacity(cell);})
+}
+function lowerOpacity(cell) { // This feels like a very silly way to do this
+    
+    cell.style.opacity -= (Math.random() * (0.4) + 0.2); //Max of 0.5 and Min of 0.4 reduction to opacity
+    if(cell.style.opacity < 0.0) {cell.style.opacity = 0.0;} // Avoid overflow
+
+    return cell.style.opacity;
 }

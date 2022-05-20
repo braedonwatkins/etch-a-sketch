@@ -107,10 +107,10 @@ button:active {
     grid-template-rows: repeat(0, auto);
     grid-auto-flow: column;
 
+    background-color: hsl(0, 0%, 90%);
     border: solid red;
 }
 .cell {
-    background-color: hsl(0, 0%, 90%);
     border: solid 0px black;
 }
 
