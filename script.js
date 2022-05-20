@@ -5,21 +5,20 @@
         b. Rainbow: Paints random color over any grid cell that is hovered (mouseenter)
     2. Inactive (Active toggled off): Default
 */
-let mouse = document.createElement("div");
-mouse.classList.add("solid");
 
 
 const cells = document.querySelectorAll(".cell");
+const mouse = document.createElement("div");
 const grid = document.querySelector(".grid");
-console.log(`${cells}`);
+
+mouse.classList.add("solid");
+
 
 cells.forEach((cell) => {
     cell.addEventListener('mouseenter', colorCell);
 });
 
 grid.addEventListener('click', toggleBrush);
-
-
 
 
 function colorCell(e) {
@@ -38,7 +37,6 @@ function toggleBrush(e) {
     console.log(`${mouse.classList}`);
 }
 
-// Color Format: <color: rgba(50, 48, 56, 0.8);>
 function randomColor() {
     let r = Math.floor(Math.random() * 255).toString();
     let g = Math.floor(Math.random() * 255).toString();
