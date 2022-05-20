@@ -66,13 +66,13 @@ function toggleBrush(e) {
     }
 }
 
-function resizeGrid() {
+function resizeGrid() { //This feels poorly written but idk how to make it better
     let test;
     do{ 
-        test = prompt("fuck am i walkin ere?");
+        test = prompt("Please enter an integer <= 100");
         if(test === "" || test === null) {return null;}
         else {test = parseInt(test);}
 
-        console.log(`${test} and ${typeof(test)}`);
+        // console.log(`${test} and ${typeof(test)}`);
     }while(test > 100 || !Number.isInteger(test));
 }
