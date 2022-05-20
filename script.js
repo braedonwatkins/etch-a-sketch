@@ -79,25 +79,25 @@ function resizeGrid() {
     if(isNaN(gridLen)) {alert("error in grid resize. please enter number <= 100."); return;}
     let gridSize = gridLen ** 2;
 
-    // 2. get children count
-    // let len = cells.length; //unnecessary variable
-    // let cellArray = Array.from(cells);
-    grid.innerHTML = "";
 
-    // 3. add / remove children 
-    if(gridSize > grid.childElementCount){
-        while(gridSize > grid.childElementCount)
-        {
-            const newCell = document.createElement("div");
-            newCell.className = "cell";
-            
-            grid.appendChild(newCell);
+    if(gridSize !== grid.childElementCount) {
+        grid.innerHTML = "";
+
+        // 3. add / remove children 
+        if(gridSize > grid.childElementCount){
+            while(gridSize > grid.childElementCount)
+            {
+                const newCell = document.createElement("div");
+                newCell.className = "cell";
+                
+                grid.appendChild(newCell);
+            }
+
+            console.log(`grid: ${grid.childElementCount}`);
+
+            grid.style.gridTemplateColumns = `repeat(${gridLen}, auto)`;
+            grid.style.gridTemplateRows = `repeat(${gridLen}, auto)`;
         }
-
-        console.log(`grid: ${grid.childElementCount}`);
-
-        grid.style.gridTemplateColumns = `repeat(${gridLen}, auto)`;
-        grid.style.gridTemplateRows = `repeat(${gridLen}, auto)`;
     }
 
 
@@ -108,7 +108,7 @@ function gridPrompt() {
     let size;
     do{ 
         size = prompt("Please enter an integer <= 100");
-        if(size === "" || size === null) {return null;}
+        if(size === "" || size === null)  {return;}
         else {size = parseInt(size);}
 
         // console.log(`${size} and ${typeof(size)}`);
