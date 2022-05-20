@@ -5,6 +5,8 @@
         b. Rainbow: Paints random color over any grid cell that is hovered (mouseenter)
     2. Inactive (Active toggled off): Default
 */
+const GRID_INIT_LEN = 7;
+
 const mouse = document.createElement("div");
 const grid = document.querySelector(".grid");
 
@@ -24,6 +26,23 @@ grid.addEventListener('mouseenter', colorCell, {capture:true});
 solidButton.addEventListener('click', toggleBrush);
 rainbowButton.addEventListener('click', toggleBrush);
 resizeButton.addEventListener('click', resizeGrid)
+
+
+window.onload = function() {
+    while(GRID_INIT_LEN ** 2 > grid.childElementCount)
+    {
+        const newCell = document.createElement("div");
+        newCell.className = "cell";
+        
+        grid.appendChild(newCell);
+    }
+
+    console.log(`grid: ${grid.childElementCount}`);
+
+    grid.style.gridTemplateColumns = `repeat(${GRID_INIT_LEN}, auto)`;
+    grid.style.gridTemplateRows = `repeat(${GRID_INIT_LEN}, auto)`;
+}
+
 
 
 function colorCell(e) {
