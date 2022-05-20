@@ -96,12 +96,11 @@ function toggleBrush(e) {
 function resizeGrid() { 
     // 1. get square dimensions of grid
     // using gridPrompt this way feels poorly written but idk how to make it better
-    let gridLen = gridPrompt();
-    if(isNaN(gridLen)) {alert("error in grid resize. please enter number <= 100."); return;}
+    let gridLen = gridPrompt(grid.childElementCount);
     let gridSize = gridLen ** 2;
 
 
-    if(gridSize !== grid.childElementCount) {
+    if(gridSize !== grid.childElementCount ** 2) {
         grid.innerHTML = "";
 
         // 3. add / remove children 
@@ -125,11 +124,11 @@ function resizeGrid() {
     // 4. refactors grid properties to evenly space divs
 }
 
-function gridPrompt() {
+function gridPrompt(gridLen) {
     let size;
     do{ 
         size = prompt("Please enter an integer <= 100");
-        if(size === "" || size === null)  {return;}
+        if(size === null)  {return gridLen;}
         else {size = parseInt(size);}
 
         // console.log(`${size} and ${typeof(size)}`);
