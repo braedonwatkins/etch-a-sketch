@@ -6,8 +6,7 @@
     2. Inactive (Active toggled off): Default
 */
 let mouse = document.createElement("div");
-mouse.classList.add("active"); // should be false but for testing we will have this to true
-let brush = "solid";
+mouse.classList.add("solid");
 
 
 const cells = document.querySelectorAll(".cell");
@@ -21,13 +20,15 @@ cells.forEach((cell) => {
 grid.addEventListener('click', toggleBrush);
 
 
+
+
 function colorCell(e) {
     if(mouse.classList.contains("active")) {
-        if(brush === "solid"){
+        if(mouse.classList.contains("solid")){
             e.target.style.background = "black";
         }
-        else if(brush === "rainbow") {
-
+        else if(mouse.classList.contains("rainbow")) {
+            e.target.style.backgroundColor = randomColor();
         }
     }
 }
@@ -44,5 +45,5 @@ function randomColor() {
     let b = Math.floor(Math.random() * 255).toString();
     // let a = Math.floor(Math.random()).toString();
 
-    return (`rgb(${r},${g},${b});`);
+    return (`rgb(${r},${g},${b})`);
 }
