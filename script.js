@@ -21,14 +21,16 @@ mouse.classList.add("solid"); //default brush type
 // cells.forEach((cell) => {
 //     cell.addEventListener('mouseenter', colorCell);
 // });
-grid.addEventListener('click', toggleActive);
+
 grid.addEventListener('mouseenter', colorCell, {capture:true});
 grid.addEventListener('animationend', removeAnimation)
+grid.addEventListener('click', toggleActive);
 
 solidButton.addEventListener('click', toggleBrush);
 rainbowButton.addEventListener('click', toggleBrush);
 resizeButton.addEventListener('click', resizeGrid);
 eraseButton.addEventListener('click', shakeGrid);
+
 
 
 window.onload = function() {
@@ -40,7 +42,7 @@ window.onload = function() {
         grid.appendChild(newCell);
     }
 
-    console.log(`grid: ${grid.childElementCount}`);
+    // console.log(`grid: ${grid.childElementCount}`);
 
     grid.style.gridTemplateColumns = `repeat(${GRID_INIT_LEN}, auto)`;
     grid.style.gridTemplateRows = `repeat(${GRID_INIT_LEN}, auto)`;
@@ -49,7 +51,7 @@ window.onload = function() {
 
 
 function colorCell(e) {
-    console.log(`${e.target.classList}`);
+    // console.log(`${e.target.classList}`);
 
     if(mouse.classList.contains("active")) {
         if(mouse.classList.contains("solid")){
@@ -69,7 +71,7 @@ function colorCell(e) {
 
 function toggleActive(e) {
     mouse.classList.toggle("active");
-    console.log(`${mouse.classList}`);
+    // console.log(`${mouse.classList}`);
 }
 
 function randomColor() {
@@ -115,7 +117,7 @@ function resizeGrid() {
                 grid.appendChild(newCell);
             }
 
-            console.log(`grid: ${grid.childElementCount}`);
+            // console.log(`grid: ${grid.childElementCount}`);
 
             grid.style.gridTemplateColumns = `repeat(${gridLen}, auto)`;
             grid.style.gridTemplateRows = `repeat(${gridLen}, auto)`;
