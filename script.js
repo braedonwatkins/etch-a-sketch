@@ -23,6 +23,8 @@ mouse.classList.add("solid"); //default brush type
 // });
 grid.addEventListener('click', toggleActive);
 grid.addEventListener('mouseenter', colorCell, {capture:true});
+grid.addEventListener('animationend', removeAnimation)
+
 solidButton.addEventListener('click', toggleBrush);
 rainbowButton.addEventListener('click', toggleBrush);
 resizeButton.addEventListener('click', resizeGrid);
@@ -139,6 +141,10 @@ function gridPrompt(gridLen) {
 
 function shakeGrid() {
     // if(e.target.classList.contains("cell")) { e.target.style.backgroundColor = `rgb(255,255,255)`;} 
+
+    // grid.style.animation = 'shake 0.5s infinite';
+    grid.classList.add("anim");
+
     const cells = document.querySelectorAll(".cell");
     cells.forEach((cell) => {cell.style.opacity = lowerOpacity(cell);})
 }
@@ -148,4 +154,7 @@ function lowerOpacity(cell) { // This feels like a very silly way to do this
     if(cell.style.opacity < 0.0) {cell.style.opacity = 0.0;} // Avoid overflow
 
     return cell.style.opacity;
+}
+function removeAnimation(e) {
+    this.classList.remove("anim");
 }
