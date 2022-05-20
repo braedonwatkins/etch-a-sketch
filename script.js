@@ -11,14 +11,20 @@ const cells = document.querySelectorAll(".cell");
 const mouse = document.createElement("div");
 const grid = document.querySelector(".grid");
 
-mouse.classList.add("solid");
+const solidButton = document.querySelector(".solid");
+const rainbowButton = document.querySelector(".rainbow");
+const resizeButton = document.querySelector(".resize");
+const eraseButton = document.querySelector(".erase");
+
+mouse.classList.add("solid"); //default brush type
 
 
 cells.forEach((cell) => {
     cell.addEventListener('mouseenter', colorCell);
 });
-
-grid.addEventListener('click', toggleBrush);
+grid.addEventListener('click', toggleActive);
+solidButton.addEventListener('click', toggleBrush);
+rainbowButton.addEventListener('click', toggleBrush);
 
 
 function colorCell(e) {
@@ -32,9 +38,9 @@ function colorCell(e) {
     }
 }
 
-function toggleBrush(e) {
+function toggleActive(e) {
     mouse.classList.toggle("active");
-    console.log(`${mouse.classList}`);
+    // console.log(`${mouse.classList}`);
 }
 
 function randomColor() {
@@ -44,4 +50,19 @@ function randomColor() {
     // let a = Math.floor(Math.random()).toString();
 
     return (`rgb(${r},${g},${b})`);
+}
+
+function toggleBrush(e) {
+    if(e.target.classList.contains("solid")) {
+        if(mouse.classList.contains("rainbow")){
+            mouse.classList.toggle("solid");
+            mouse.classList.toggle("rainbow");
+        }
+    }
+    else if(e.target.classList.contains("rainbow")) {
+        if(mouse.classList.contains("solid")){
+            mouse.classList.toggle("solid");
+            mouse.classList.toggle("rainbow");
+        }
+    }
 }
