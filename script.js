@@ -109,7 +109,7 @@ function resizeGrid() {
     let gridSize = gridLen ** 2;
 
 
-    if(gridSize !== grid.childElementCount ** 2) {
+    if(gridSize !== grid.childElementCount) {
         grid.innerHTML = "";
 
         // 3. add / remove children 
