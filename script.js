@@ -71,6 +71,11 @@ function colorCell(e) {
 
 function toggleActive(e) {
     mouse.classList.toggle("active");
+
+    if(mouse.classList.contains("active")){
+        grid.style.borderColor =  "hsl(300, 80%, 50%)";
+    }
+    else {grid.style.borderColor = "";}
     // console.log(`${mouse.classList}`);
 }
 

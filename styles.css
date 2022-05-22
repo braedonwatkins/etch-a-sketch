@@ -119,8 +119,8 @@ button:active {
     grid-template-rows: repeat(0, auto);
     grid-auto-flow: column;
 
-    background-color: hsl(0, 0%, 90%);
-    
+    background-color: hsl(0, 0%, 95%);
+
     border: solid  5px hsl(0, 90%, 50%);
     border-bottom: solid 7.5px hsl(0,90%,50%);
     border-radius: 8px;
