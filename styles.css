@@ -33,6 +33,18 @@ body {
     /* border: solid yellow; */
 }
 
+.instructions {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    margin: 16px 16px 0 16px;
+
+    /* border: solid blue; */
+
+    flex: 1 1 300px;
+}
+
 .options {
     display: flex;
     flex-direction: column;
