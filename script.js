@@ -136,8 +136,8 @@ function resizeGrid() {
 function gridPrompt(gridLen) {
     let size;
     do{ 
-        size = prompt("Please enter square dimensions (an integer from 2 to 100)", Math.sqrt(grid.childElementCount));
-        if(size === null)  {return gridLen;}
+        size = prompt("Please enter square dimensions (an integer from 2 to 100)", Math.sqrt(gridLen));
+        if(size === '' || size === null)  {return Math.sqrt(gridLen);}
         else {size = parseInt(size);}
 
         // console.log(`${size} and ${typeof(size)}`);
