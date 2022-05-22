@@ -108,7 +108,10 @@ button:active {
     grid-auto-flow: column;
 
     background-color: hsl(0, 0%, 90%);
-    border: solid red;
+    
+    border: solid  5px hsl(0, 90%, 50%);
+    border-bottom: solid 7.5px hsl(0,90%,50%);
+    border-radius: 8px;
 }
 .cell {
     border: solid 0px black;
