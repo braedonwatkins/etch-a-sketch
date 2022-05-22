@@ -131,12 +131,13 @@ function resizeGrid() {
 function gridPrompt(gridLen) {
     let size;
     do{ 
-        size = prompt("Please enter an integer <= 100");
+        size = prompt("Please enter square dimensions (2 to 100)");
         if(size === null)  {return gridLen;}
         else {size = parseInt(size);}
 
         // console.log(`${size} and ${typeof(size)}`);
-    }while(size > 100 || !Number.isInteger(size));
+    }while(!Number.isInteger(size) || size > 100 || size < 2);
+    
 
     return size;
 }
